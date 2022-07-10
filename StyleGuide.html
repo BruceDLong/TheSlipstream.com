@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- required meta tags -->
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- title -->
+    <title>The Slipstream</title>
+</head>
+<body>
+<h1>CodeDog Style Guide</h1>
+
+<h2>The following are some general guidelines so that we all produce code that looks similar.</h2>
+<ul>
+    <li><p></p>Use 4 spaces to indent. Do not use tab characters. You can set your editor to do this automatically.</p></li>
+
+    <li>Line up curly braces like this:
+    <pre><code>
+        if(…){
+            // code here
+        } else {
+            // code here
+        }
+        </code></pre>
+</li>
+    <li>If it seems appropriate, lines of code can be made to line up with each other like this:
+        <pre><code>
+        sizeDiff            <- 0
+
+        LHS.value.format    <- fLiteral
+
+        LHS.value.str       <- RHS.value.str
+
+        LHS.value.sizeMode  <- fromGiven
+        </code></pre>
+</li>
+    <li><p>Use camelCase for identifiers. Class names can be capitalized while other identifiers start lower case.</p>
+</li>
+    <li><p>Only put more than one command on a single line when it adds to the clarity of the code or makes trivial things take less space.</p><p> Separate the items with semicolons:</p>
+        <pre><code>
+           void: clear()<-{path<-NULL; flags<-0;}
+        </code></pre>
+</li></ul>
+</body>
+</html>

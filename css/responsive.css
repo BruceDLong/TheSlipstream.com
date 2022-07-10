@@ -1,0 +1,155 @@
+/*==================================================
+             Media Queries
+==================================================*/
+
+
+/* Large Devices (Desktops & Laptops) */
+
+@media (min-width: 1200px) {
+
+}
+
+
+/* Medium Devices (Landscape Tablets & Medium Desktops) */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    #page-content {
+        width: 78%;
+    }
+    .masthead {
+        height: 850px;
+        min-height: 850px;
+        padding: 20px;
+    }
+
+}
+
+
+/* Small Devices (Portrait Tablets & Small Desktops) */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar {
+        padding: 1rem 3rem;
+    }
+    .font-weight {
+    }
+    .masthead {
+    height: 460px;
+    min-height: 460px;
+}
+    #page-content {
+        width: 100%;
+    }
+    .sidenav a {
+        font-size: 17px !important;
+        transition: 0.3s;
+    }
+    .nav-link-bordered {
+        border: 0px solid  !important;
+    }
+    .sidenav .closebtn {
+        font-size: 36px !important;
+    }
+}
+
+
+/* Extra Small Devices (Landscape Phones & Portrait Tablets) */
+
+@media (max-width: 767px) {
+    .navbar-brand-logo {
+        width: 40px;
+    }
+    .masthead {
+        height: 350px;
+        min-height: 350px;
+        padding: 20px;
+    }
+    .navbar {
+        padding: 1rem 3rem;
+    }
+    .font-weight {
+        font-size: 30px;
+            line-height: 1em;
+            margin: 10px 0;
+    }
+    .font-weight2 {
+    font-size: 25px;
+}
+    #page-content {
+        width: 100%;
+        padding: 50px 0 0 0;
+    }
+    .form-inner {
+        display: block;
+    }
+    .form-inner input {
+        width: 90%;
+        height: 40px;
+        margin: 20px 0;
+    }
+    .form-inner button {
+        padding: 0;
+        width: 90%;
+        height: 40px;
+        top: 0px;
+    }
+    .form-box {
+        margin: 100px 0;
+    }
+    .form-box h4 {
+        margin-bottom: 30px;
+    }
+    .form-box p {
+        margin: 0 50px;
+    }
+    .sidenav a {
+        font-size: 17px !important;
+        transition: 0.3s;
+    }
+    .nav-link-bordered {
+        border: 0px solid  !important;
+    }
+    .sidenav .closebtn {
+        font-size: 36px !important;
+    }
+    #contact-us {
+        width: 100%;
+        padding: 50px 0 0 0;
+    }
+
+    #blog {
+        width: 100%;
+        padding: 50px 0 0 0;
+    }
+    .lead {
+        font-size: 18px;
+    }
+}
+
+
+/* Extra Small Devices (Portrait Phones & Smaller devices) */
+
+@media (max-width: 480px) {
+    .font-weight {
+        font-size: 30px;
+    }
+    .font-weight2 {
+        font-size: 25px;
+    }
+    .font-weight3 {
+        font-size: 25px;
+    }
+}
+
+
+/* Extra Small Devices (Portrait Phones & Smaller devices) */
+
+@media (max-width: 320px) {
+    .font-weight {
+        font-size: 20px;
+    }
+    .font-weight2 {
+        font-size: 20px;
+    }
+}

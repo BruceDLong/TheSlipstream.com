@@ -1,0 +1,49 @@
+<svg class="railroad-diagram" height="122" viewBox="0 0 714.0 122" width="714.0" xmlns="http://www.w3.org/2000/svg">
+<text style="text-anchor:start" font-family="Verdana" font-size="64" fill="darkgray" x="15" y="15">ClassDefinition</text>
+<g transform="translate(.5 10.5)">
+<style>/* <![CDATA[ */
+	svg.railroad-diagram {
+		background-color:hsl(30,20%,95%);
+	}
+	svg.railroad-diagram path {
+		stroke-width:3;
+		stroke:black;
+		fill:rgba(0,0,0,0);
+	}
+	svg.railroad-diagram text {
+		font:bold 14px monospace;
+		text-anchor:middle;
+	}
+	svg.railroad-diagram text.label{
+		text-anchor:start;
+	}
+	svg.railroad-diagram text.comment{
+		font:italic 12px monospace;
+	}
+	svg.railroad-diagram rect{
+		stroke-width:3;
+		stroke:black;
+		fill:hsl(120,100%,90%);
+	}
+	svg.railroad-diagram rect.group-box {
+		stroke: gray;
+		stroke-dasharray: 10 5;
+		fill: none;
+	}
+
+/* ]]> */
+</style><g>
+<path d="M20 51v20m10 -20v20m-10 -10h20"></path></g><g>
+<path d="M40 61h0.0"></path><path d="M151.0 61h0.0"></path><path d="M40.0 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path><g class="terminal ">
+<path d="M60.0 31h4.25"></path><path d="M126.75 31h4.25"></path><rect height="22" rx="10" ry="10" width="62.5" x="64.25" y="20"></rect><text x="95.5" y="35">model</text></g><path d="M131.0 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path><path d="M40.0 61h20"></path><g class="terminal ">
+<path d="M60.0 61h0.0"></path><path d="M131.0 61h0.0"></path><rect height="22" rx="10" ry="10" width="71.0" x="60.0" y="50"></rect><text x="95.5" y="65">struct</text></g><path d="M131.0 61h20"></path><path d="M40.0 61a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path><g class="terminal ">
+<path d="M60.0 91h0.0"></path><path d="M131.0 91h0.0"></path><rect height="22" rx="10" ry="10" width="71.0" x="60.0" y="80"></rect><text x="95.5" y="95">string</text></g><path d="M131.0 91a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path></g><path d="M151.0 61h10"></path><g class="non-terminal ">
+<path d="M161.0 61h0.0"></path><path d="M257.5 61h0.0"></path><rect height="22" width="96.5" x="161.0" y="50"></rect><text x="209.25" y="65">className</text></g><path d="M257.5 61h10"></path><g>
+<path d="M267.5 61h0.0"></path><path d="M515.0 61h0.0"></path><path d="M267.5 61a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path><g>
+<path d="M287.5 41h207.5"></path></g><path d="M495.0 41a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path><path d="M267.5 61h20"></path><g>
+<path d="M287.5 61h0.0"></path><path d="M495.0 61h0.0"></path><g class="terminal ">
+<path d="M287.5 61h0.0"></path><path d="M316.0 61h0.0"></path><rect height="22" rx="10" ry="10" width="28.5" x="287.5" y="50"></rect><text x="301.75" y="65">:</text></g><path d="M316.0 61h10"></path><path d="M326.0 61h10"></path><g>
+<path d="M336.0 61h0.0"></path><path d="M495.0 61h0.0"></path><path d="M336.0 61h10"></path><g class="non-terminal ">
+<path d="M346.0 61h0.0"></path><path d="M485.0 61h0.0"></path><rect height="22" width="139.0" x="346.0" y="50"></rect><text x="415.5" y="65">Tag Definition</text></g><path d="M485.0 61h10"></path><path d="M346.0 61a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g>
+<path d="M346.0 81h139.0"></path></g><path d="M485.0 81a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"></path></g></g><path d="M495.0 61h20"></path></g><path d="M515.0 61h10"></path><g class="non-terminal ">
+<path d="M525.0 61h0.0"></path><path d="M664.0 61h0.0"></path><rect height="22" width="139.0" x="525.0" y="50"></rect><text x="594.5" y="65">Structure Spec</text></g><path d="M664.0 61h10"></path><path d="M 674.0 61 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

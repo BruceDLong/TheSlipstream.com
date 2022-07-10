@@ -1,0 +1,186 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>5. Contributing &#8212; CodeDog 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/p_sphinx_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/local_fonts.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/p_sphinx_theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="4. Extending CodeDog" href="extending.html" /> 
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+      <div class="relbar-top">
+            
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="extending.html" title="4. Extending CodeDog"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+      <li><a href="index.html">CodeDog 1.0 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+      </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="contributing">
+<h1>5. Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>Thank you for your interest in contributing to the CodeDog project!</p>
+<p>Here you will find resources that will be useful in some way.</p>
+<div class="section" id="codedog-style-guide">
+<h2>5.1. CodeDog Style Guide<a class="headerlink" href="#codedog-style-guide" title="Permalink to this headline">¶</a></h2>
+<p>The following are some general guidelines so that we all produce code that looks similar.</p>
+<ol class="arabic simple">
+<li>Use 4 spaces to indent. Do not use tab characters. You can set your editor to do this automatically.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you use a file compare tool such as Meld, be sure to set it to use 4 spaces and no tabs.
+We have found that we get commits with terrible white space changes otherwise.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Line up curly braces like this:</li>
+</ol>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>if(…){
+    // code here
+} else {
+    // code here
+}
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>If it seems appropriate, lines of code can be made to line up with each other like this:</li>
+</ol>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>sizeDiff            &lt;- 0
+LHS.value.format    &lt;- fLiteral
+LHS.value.str       &lt;- RHS.value.str
+LHS.value.sizeMode  &lt;- fromGiven
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Use camelCase for identifiers. Class names can be capitalized while other identifiers start lower case.</li>
+<li>Only put more than one command on a single line when it adds to the clarity of the code or makes trivial things take less space. Separate the items with semicolons:</li>
+</ol>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>void: clear()&lt;-{path&lt;-NULL; flags&lt;-0;}
+</pre></div>
+</div>
+</div>
+<div class="section" id="our-code-review-checklist">
+<h2>5.2. Our Code Review Checklist<a class="headerlink" href="#our-code-review-checklist" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tiffany-s-workflow">
+<h2>5.3. Tiffany’s Workflow<a class="headerlink" href="#tiffany-s-workflow" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="a-tour-of-how-codedog-builds-programs">
+<h2>5.4. A Tour of How CodeDog Builds Programs<a class="headerlink" href="#a-tour-of-how-codedog-builds-programs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-codedog-file">
+<h3>5.4.1. The codeDog file<a class="headerlink" href="#the-codedog-file" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="codedogparser-py">
+<h3>5.4.2. codeDogParser.py<a class="headerlink" href="#codedogparser-py" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="progspec-py">
+<h3>5.4.3. progSpec.py<a class="headerlink" href="#progspec-py" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="codegenerator-py">
+<h3>5.4.4. codeGenerator.py<a class="headerlink" href="#codegenerator-py" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="builddog-py">
+<h3>5.4.5. buildDog.py<a class="headerlink" href="#builddog-py" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div class="sphinxglobaltoc">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to CodeDog!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getStarted.html">1. Getting Started With CodeDog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicReference.html">2. CodeDog language reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libraries.html">3. CodeDog Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">4. Extending CodeDog</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#codedog-style-guide">5.1. CodeDog Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#our-code-review-checklist">5.2. Our Code Review Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tiffany-s-workflow">5.3. Tiffany’s Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-tour-of-how-codedog-builds-programs">5.4. A Tour of How CodeDog Builds Programs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+      <div class="relbar-bottom">
+            
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="extending.html" title="4. Extending CodeDog"
+             >previous</a> &nbsp; &nbsp;</li>
+      <li><a href="index.html">CodeDog 1.0 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Bruce Long.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+      <!-- PSphinxTheme -->
+  </body>
+</html>

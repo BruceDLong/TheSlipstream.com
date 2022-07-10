@@ -1,0 +1,57 @@
+<svg class="railroad-diagram" height="234" viewBox="0 0 393.5 234" width="393.5" xmlns="http://www.w3.org/2000/svg">
+<text style="text-anchor:start" font-family="Verdana" font-size="64" fill="darkgray" x="15" y="15">StructureSpec</text>
+<g transform="translate(.5 10.5)">
+<style>/* <![CDATA[ */
+	svg.railroad-diagram {
+		background-color:hsl(30,20%,95%);
+	}
+	svg.railroad-diagram path {
+		stroke-width:3;
+		stroke:black;
+		fill:rgba(0,0,0,0);
+	}
+	svg.railroad-diagram text {
+		font:bold 14px monospace;
+		text-anchor:middle;
+	}
+	svg.railroad-diagram text.label{
+		text-anchor:start;
+	}
+	svg.railroad-diagram text.comment{
+		font:italic 12px monospace;
+	}
+	svg.railroad-diagram rect{
+		stroke-width:3;
+		stroke:black;
+		fill:hsl(120,100%,90%);
+	}
+	svg.railroad-diagram rect.group-box {
+		stroke: gray;
+		stroke-dasharray: 10 5;
+		fill: none;
+	}
+
+/* ]]> */
+</style><g>
+<path d="M20 54v20m10 -20v20m-10 -10h20"></path></g><g>
+<path d="M40 64h0.0"></path><path d="M353.5 64h0.0"></path><path d="M40.0 64h20"></path><g>
+<path d="M60.0 64h14.25"></path><path d="M319.25 64h14.25"></path><rect class="group-box" height="56" rx="10" ry="10" width="245.0" x="74.25" y="36"></rect><g>
+<path d="M74.25 64h10.0"></path><path d="M309.25 64h10.0"></path><g class="terminal ">
+<path d="M84.25 64h0.0"></path><path d="M112.75 64h0.0"></path><rect height="22" rx="10" ry="10" width="28.5" x="84.25" y="53"></rect><text x="98.5" y="68">{</text></g><path d="M112.75 64h10"></path><g>
+<path d="M122.75 64h0.0"></path><path d="M270.75 64h0.0"></path><path d="M122.75 64a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path><g>
+<path d="M142.75 44h108.0"></path></g><path d="M250.75 44a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path><path d="M122.75 64h20"></path><g>
+<path d="M142.75 64h0.0"></path><path d="M250.75 64h0.0"></path><path d="M142.75 64h10"></path><g class="non-terminal ">
+<path d="M152.75 64h0.0"></path><path d="M240.75 64h0.0"></path><rect height="22" width="88.0" x="152.75" y="53"></rect><text x="196.75" y="68">FieldDef</text></g><path d="M240.75 64h10"></path><path d="M152.75 64a10 10 0 0 0 -10 10v0a10 10 0 0 0 10 10"></path><g>
+<path d="M152.75 84h88.0"></path></g><path d="M240.75 84a10 10 0 0 0 10 -10v0a10 10 0 0 0 -10 -10"></path></g><path d="M250.75 64h20"></path></g><path d="M270.75 64h10"></path><g class="terminal ">
+<path d="M280.75 64h0.0"></path><path d="M309.25 64h0.0"></path><rect height="22" rx="10" ry="10" width="28.5" x="280.75" y="53"></rect><text x="295.0" y="68">}</text></g></g><g class="non-terminal ">
+<path d="M74.25 28h0.0"></path><path d="M182.25 28h0.0"></path><text class="comment" x="128.25" y="33">Field Sequence</text></g></g><path d="M333.5 64h20"></path><path d="M40.0 64a10 10 0 0 1 10 10v51a10 10 0 0 0 10 10"></path><g>
+<path d="M60.0 135h0.0"></path><path d="M333.5 135h0.0"></path><rect class="group-box" height="98" rx="10" ry="10" width="273.5" x="60.0" y="116"></rect><g>
+<path d="M60.0 135h10.0"></path><path d="M323.5 135h10.0"></path><g class="terminal ">
+<path d="M70.0 135h0.0"></path><path d="M98.5 135h0.0"></path><rect height="22" rx="10" ry="10" width="28.5" x="70.0" y="124"></rect><text x="84.25" y="139">&#91;</text></g><path d="M98.5 135h10"></path><path d="M108.5 135h10"></path><g>
+<path d="M118.5 135h0.0"></path><path d="M275.0 135h0.0"></path><path d="M118.5 135h10"></path><g>
+<path d="M128.5 135h0.0"></path><path d="M265.0 135h0.0"></path><path d="M128.5 135h20"></path><g class="non-terminal ">
+<path d="M148.5 135h4.25"></path><path d="M240.75 135h4.25"></path><rect height="22" width="88.0" x="152.75" y="124"></rect><text x="196.75" y="139">FieldDef</text></g><path d="M245.0 135h20"></path><path d="M128.5 135a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path><g class="non-terminal ">
+<path d="M148.5 165h0.0"></path><path d="M245.0 165h0.0"></path><rect height="22" width="96.5" x="148.5" y="154"></rect><text x="196.75" y="169">CoFactual</text></g><path d="M245.0 165a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path></g><path d="M265.0 135h10"></path><path d="M128.5 135a10 10 0 0 0 -10 10v40a10 10 0 0 0 10 10"></path><g class="terminal ">
+<path d="M128.5 195h54.0"></path><path d="M211.0 195h54.0"></path><rect height="22" rx="10" ry="10" width="28.5" x="182.5" y="184"></rect><text x="196.75" y="199">|</text></g><path d="M265.0 195a10 10 0 0 0 10 -10v-40a10 10 0 0 0 -10 -10"></path></g><path d="M275.0 135h10"></path><path d="M285.0 135h10"></path><g class="terminal ">
+<path d="M295.0 135h0.0"></path><path d="M323.5 135h0.0"></path><rect height="22" rx="10" ry="10" width="28.5" x="295.0" y="124"></rect><text x="309.25" y="139">&#93;</text></g></g><g class="non-terminal ">
+<path d="M60.0 108h0.0"></path><path d="M182.0 108h0.0"></path><text class="comment" x="121.0" y="113">Field Alternates</text></g></g><path d="M333.5 135a10 10 0 0 0 10 -10v-51a10 10 0 0 1 10 -10"></path></g><path d="M 353.5 64 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>

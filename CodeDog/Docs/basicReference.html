@@ -1,0 +1,572 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2. CodeDog language reference &#8212; CodeDog 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/p_sphinx_theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/local_fonts.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/p_sphinx_theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. CodeDog Libraries" href="libraries.html" />
+    <link rel="prev" title="1. Getting Started With CodeDog" href="getStarted.html" /> 
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+      <div class="relbar-top">
+            
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="libraries.html" title="3. CodeDog Libraries"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getStarted.html" title="1. Getting Started With CodeDog"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+      <li><a href="index.html">CodeDog 1.0 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+      </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="codedog-language-reference">
+<h1>2. CodeDog language reference<a class="headerlink" href="#codedog-language-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="codedog-files">
+<h2>2.1. CodeDog Files<a class="headerlink" href="#codedog-files" title="Permalink to this headline">¶</a></h2>
+<p>A CodeDog program is defined in a text file. By convention filenames have a .dog extension.</p>
+<div class="section" id="comments">
+<h3>2.1.1. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>CodeDog supports line and block comments. Line comments are from // to the end of the line.
+Block comments are between /* and <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
+</div>
+<div class="section" id="include-files">
+<h3>2.1.2. #include files<a class="headerlink" href="#include-files" title="Permalink to this headline">¶</a></h3>
+<p>CodeDog files may directly include the contents of other files by with an include directive.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>#include colorDefinitions.dog
+#include includeFiles/extraData.dog
+</pre></div>
+</div>
+<p>CodeDog tries to find included files in three places, in order, before giving up. They are:</p>
+<ol class="arabic simple">
+<li>The current working directory</li>
+<li>The directory where codeDog is located</li>
+<li>The directory where the current source file is</li>
+</ol>
+</div>
+</div>
+<div class="section" id="the-three-sections-of-a-codedog-program">
+<h2>2.2. The Three Sections of a CodeDog Program<a class="headerlink" href="#the-three-sections-of-a-codedog-program" title="Permalink to this headline">¶</a></h2>
+<p>Starting from the top of the dog file to the bottom there are three sections to every CodeDog program.
+They are called the buildSpecs section, the tags section and the class definition section.</p>
+<img alt="CodeDog_Program.svg" src="CodeDog_Program.svg" /><div class="section" id="define-your-builds-with-buildspecs">
+<h3>2.2.1. Define your builds with buildspecs<a class="headerlink" href="#define-your-builds-with-buildspecs" title="Permalink to this headline">¶</a></h3>
+<p>The first section, called “BuildSpecs” is where the different builds requested for this program are defined.</p>
+<img alt="buildSpec.svg" src="buildSpec.svg" /><p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">LinuxBuild</span><span class="p">:</span> <span class="n">Platform</span><span class="o">=</span><span class="s1">&#39;Linux&#39;</span> <span class="n">CPU</span><span class="o">=</span><span class="s1">&#39;amd64&#39;</span> <span class="n">Lang</span><span class="o">=</span><span class="s1">&#39;CPP&#39;</span> <span class="n">optimize</span><span class="o">=</span><span class="s1">&#39;speed&#39;</span><span class="p">;</span>
+<span class="n">SwingBuild</span><span class="p">:</span> <span class="n">Platform</span><span class="o">=</span><span class="s1">&#39;Java&#39;</span> <span class="n">CPU</span><span class="o">=</span><span class="s1">&#39;JavaVM&#39;</span> <span class="n">Lang</span><span class="o">=</span><span class="s1">&#39;Java&#39;</span> <span class="n">optimize</span><span class="o">=</span><span class="s1">&#39;speed&#39;</span><span class="p">;</span>
+<span class="n">AndroidBuild</span><span class="p">:</span> <span class="n">Platform</span><span class="o">=</span><span class="s1">&#39;Android&#39;</span> <span class="n">CPU</span><span class="o">=</span><span class="s1">&#39;JavaVM&#39;</span> <span class="n">Lang</span><span class="o">=</span><span class="s1">&#39;Java&#39;</span> <span class="n">optimize</span><span class="o">=</span><span class="s1">&#39;power&#39;</span><span class="p">;</span>
+<span class="n">iPhoneBuild</span><span class="p">:</span> <span class="n">Platform</span><span class="o">=</span><span class="s1">&#39;IOS&#39;</span> <span class="n">CPU</span><span class="o">=</span><span class="s1">&#39;amd64&#39;</span> <span class="n">Lang</span><span class="o">=</span><span class="s1">&#39;Swift&#39;</span> <span class="n">optimize</span><span class="o">=</span><span class="s1">&#39;speed&#39;</span><span class="p">;</span>
+<span class="n">MacBuild</span><span class="p">:</span> <span class="n">Platform</span><span class="o">=</span><span class="s1">&#39;MacOS&#39;</span> <span class="n">Lang</span><span class="o">=</span><span class="s1">&#39;Swift&#39;</span> <span class="n">optimize</span><span class="o">=</span><span class="s1">&#39;speed&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This code specifies to build five variations of the program. The identifier at the beginning of each line
+is the name of a folder to place the build in. Next, after the colon, is a list of tags which define the build.
+Tags will be discussed in the next section, But they can give information to CodeDog such as which platform to build for.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Unless there are specific libraries and classes that can use tags such as ‘optimize’ or ‘CPU’,
+these tags do not do anything. At the current time
+many libraries and classes can be selected by Platform and Lang tags.
+When such classes are written tags that specify the CPU or the size
+of the L2 cache, for example, could cause those optimized classes to be selected in the right situation.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Leaving out the buildSpecs causes CodeDog to build for the current platform.</li>
+<li>If you wish to separate the specifications of which builds to do from your code, place the buildSpecs in
+a separate file and #include it near the top of the dog file.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="define-your-application-information-with-tags">
+<h3>2.2.2. Define your application information with tags<a class="headerlink" href="#define-your-application-information-with-tags" title="Permalink to this headline">¶</a></h3>
+<p>The tags section of a program consists of a list of tag definitions.</p>
+<img alt="TagDefinition.svg" src="TagDefinition.svg" /><p>Use this section give additional information to CodeDog about build settings, GUI preferences and so on.</p>
+<p>Here is a typical tag section:</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>Title = &quot;Minimal GUI Demo&quot;
+FileName = &quot;minimalGUI&quot;
+Version = &quot;1.0&quot;
+CopyrightMesg = &quot;Public Domain&quot;
+Authors = &quot;Bruce Long&quot;
+Description = &quot;This is an example of a very minimal GUI&quot;
+ProgramOrLibrary = &quot;program&quot;
+LicenseText = `Public Domain`
+
+featuresNeeded = [GUI_ToolKit, Dashboard, Unicode]
+
+runCode=``
+</pre></div>
+</div>
+<p>While you can put any tags you want to in this section, only certain ones are used by
+CodeDog. For example, the featuresNeeded tag, along with Platform and Lang help CodeDog choose which libraries to link.
+Patterns and classes may refer to these to get arguments or preferences. If you make your own patterns you may require
+different tags to be present.</p>
+<p>Note that the tags in the buildSpecs override the tags in the tags section during each build. For example,
+if the tags section contained the tag optimize = speed, but builds for phone devices contained optimize = power, the power
+value would override the speed value in those builds.</p>
+<dl class="docutils">
+<dt>There are several different types for tags.</dt>
+<dd><ul class="first last simple">
+<li>A string:  <code class="docutils literal"><span class="pre">FileName</span> <span class="pre">=</span> <span class="pre">&quot;minimalGUI&quot;</span></code> or <code class="docutils literal"><span class="pre">FileName</span> <span class="pre">=</span> <span class="pre">'minimalGUI'</span></code></li>
+<li>A multi-line string: Use backtics to delimit a string when needed. The LicenseText and runCode tags often need to be on multiple lines.</li>
+<li>A keyword: <code class="docutils literal"><span class="pre">ProgramOrLibrary</span> <span class="pre">=</span> <span class="pre">program</span></code>. Keywords can contain alphanumeric characters or any of these: - * _ . /</li>
+<li>A List: <code class="docutils literal"><span class="pre">featuresNeeded</span> <span class="pre">=</span> <span class="pre">[GUI_ToolKit,</span> <span class="pre">Dashboard,</span> <span class="pre">Unicode]</span></code>.  Note that the items in this list are Keywords but could be any of the other tag types, including nested lists or maps.</li>
+<li>A Map: <code class="docutils literal"><span class="pre">defaultStyle</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">bgColor=red</span> <span class="pre">font=&quot;times</span> <span class="pre">new</span> <span class="pre">roman&quot;</span> <span class="pre">}</span></code>.  Note that a map is really just a list of tag definitions So they can contain other lists and maps as well.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="write-your-classes-and-apply-any-patterns">
+<h3>2.2.3. Write your classes and apply any patterns<a class="headerlink" href="#write-your-classes-and-apply-any-patterns" title="Permalink to this headline">¶</a></h3>
+<p>The third section of a CodeDog program is where classes for the program are defined.
+CodeDog’s concept of classes is somewhat different than the typical object oriented class.
+The concepts, syntax and usage are described in the next chapter.</p>
+</div>
+</div>
+<div class="section" id="classes">
+<h2>2.3. Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<p>A recurring theme regarding CodeDog’s class definitions, and data types in general, is that there
+is a wealth of information about what your program is supposed to do or not do captured in the
+definition of a type. Languages that try to infer too much about the type of your data miss out on the opportunity to
+help in the creation of a program. Looking at a class definition you almost have enough information to figure out
+how to read or write that class to a file, or to a database. If it is known that a particular class is supposed to be
+filled in by a user, there is almost enough information to let a programmer create a GUI for the task. Almost.
+Classes in CodeDog are slightly different in several ways that allow them to be used for such tasks.</p>
+<p>A common way of thinking about classes in programming languages is that they are a way to package data into a single ‘chunk’
+together with the ‘methods’ or action that can be performed on that data. This perspective is not wrong, but there is a
+more useful way of looking at classes that explains several of the unusual aspects of CodeDog classes.</p>
+<p>Think of classes as a ‘map’ of a chunk of information. If we are given a chunk of information, what data items are inside it and where are they located?
+In addition, what actions can be performed on that data?</p>
+<div class="section" id="kinds-of-classes">
+<h3>2.3.1. Kinds of classes<a class="headerlink" href="#kinds-of-classes" title="Permalink to this headline">¶</a></h3>
+<p>The term “class” in CodeDog is not actually a keyword in the language. Instead, there are three
+ways to define a map of information. The keywords are ‘model’, ‘struct’, and ‘string’; all three are
+called classes.</p>
+<img alt="ClassDefinition.svg" src="ClassDefinition.svg" /><div class="section" id="class-tags">
+<h4>2.3.1.1. Class Tags<a class="headerlink" href="#class-tags" title="Permalink to this headline">¶</a></h4>
+<p>The first thing to notice about classes from the above syntax diagram is that they can have tags associated with them.
+Patterns and other aspects of CodeDog can use these tags.</p>
+<p>A major built-in use is to define inherited classes or implemented classes. Because CodeDog compiles to use native libraries there
+is also a tag to assert that a class is a wrapper around another class, probably one in a library.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>struct shapeWidget: inherits = &lt;widget&gt; {...}
+
+struct MasterMouseListener: implements=MouseListener {...}
+
+MutexMngr: wraps = Unique_Lock_Mutex {...}
+</pre></div>
+</div>
+<p>Another exapmle of how class tags are used is how they can define the performance of a function so that CodeDog can best choose among options
+In the following example uses a variety of tags.</p>
+<p>Note that all the tags given as examples here are documented elsewhere and it isn’t expected that the examples will be fully understood at this point.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>struct CPP_Deque&lt;nodeType&gt;: implements = List wraps = deque specs = {insert = linear append = constant prepend = constant}{...}
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Note::</dt>
+<dd>By convention, we name classes with CamelCase starting with a capital letter and non-classes with lower-case camelCase.</dd>
+</dl>
+<p>The structure of a class consists of a list of field definitions. A structure defined with curly braces ( ‘{‘ and ‘} ) defines a sequence of fields.
+Defining a structure with square brackets ( ‘[‘ and ‘]’ ) denotes a ‘union’. Only one of the fields is valid at a time.</p>
+<img alt="StructureSpec.svg" src="StructureSpec.svg" /></div>
+<div class="section" id="models">
+<h4>2.3.1.2. Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h4>
+<p>For all but the simplest situation, classes have some fields that are considered an integral part
+of the class and others that are merely implementation details. Typically, languages let the programmer distinguish
+the ‘essential’ fields from the implemetation details fields by marking them <em>public</em> or <em>private</em>.
+The idea is that public fields are those an outside programmer may use and private fields are those used internally by
+the class. This is not the best way of making the distinction. There may be some public fields that are needed
+by the programmer but which are not a part of the ‘essence’ of the class. For example, a function to dump the
+contents of a class may be public but it is not part of the essence of the class. This becomes important in CodeDog
+when the language needs to know which fields are the important ones. In addition, all the markings of public and private
+can really become complicated and clutter a program. To handle various cases languages add “friend” classes which are partly public
+and partly private. And the complexity grows.</p>
+<p><em>Models vs structs</em>:
+The first difference is that instead of public and private fields, CodeDog considers fields defined as a <em>model</em> to be the essential fields for the class
+and fields defined as a <em>struct</em> are considered non-essential.</p>
+<p><em>Entending classes</em>:
+The second difference is that classes defined under the same name are extensions of the same class.
+For example, if you define a model named “personRec’ with fields ‘name’ and ‘age’, you could later define a struct
+named personRec with fields ‘calculateAge()’ and ‘dumpStatus()’. The resulting class would have all the fields.
+If later you want to make a parser for this class, CodeDog can help. But it will not try to parse the struct fields; just the model fields.</p>
+<p><em>Models are abstract</em>:
+A third difference is that models are considered ‘abstract’ classes. They define what fields are in a class but not where they are.
+Therefore, if a class is defined only as a model it cannot be instantiated.</p>
+<p>To be able to instantiate a model make a struct form of it.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>model shape {
+    me Color: color
+    me mode[circle, square, rectangle, oval]: shapeType
+}
+
+// By itself, shape cannot be instantiated. We must add the following line:
+
+struct shape{}
+
+// We can also add more fields:
+
+struct shape{
+    me bool: isPreferredShape
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="structs">
+<h4>2.3.1.3. Structs<a class="headerlink" href="#structs" title="Permalink to this headline">¶</a></h4>
+<p>Classes denoted <a href="#id3"><span class="problematic" id="id4">*</span></a>struct*s are similar to classes of other languages and can be implemented.</p>
+</div>
+<div class="section" id="strings">
+<h4>2.3.1.4. Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h4>
+<div class="sidebar">
+<p class="first sidebar-title">String Structs</p>
+<p class="last">A <em>string class</em> is different than a string variable.
+String variables store strings of charactars or bytes.
+String Classes or “String Structs” are maps of strings, essentially
+describing the syntax of the string.</p>
+</div>
+<p>Classes denoted <a href="#id5"><span class="problematic" id="id6">*</span></a>struct*s are sequences of bytes. They typically have a well defined size that does not change.
+Furthermore, they are typically considered to reside in memory.</p>
+<p>Classes declared with <em>string</em> are maps of sequences of bytes which can vary in size. They are maps of strings.
+Moving data from a string class to a struct class requires a parser. These can often be generated automatically by CodeDog.
+String classes are described in detail in the section Generating Parsers.</p>
+</div>
+<div class="section" id="a-struct-named-global">
+<h4>2.3.1.5. A struct named GLOBAL<a class="headerlink" href="#a-struct-named-global" title="Permalink to this headline">¶</a></h4>
+<p>CodeDog uses the special struct named GLOBAL to represent fields that should have a global scope. To make a variable with global scope,
+simply place it inside the GLOBAL struct. The following example declares a global integer named globalCount and on program start it is initialized to 1.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>struct GLOBAL{
+    me int: globalCount &lt;- 1
+}
+</pre></div>
+</div>
+<p>In languages (Java) that are unable to support global variables, a commonly used work-around is used to get the same effect as global scope.</p>
+</div>
+</div>
+</div>
+<div class="section" id="fields">
+<h2>2.4. Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-types-and-ownership">
+<h3>2.4.1. Data types and ownership<a class="headerlink" href="#data-types-and-ownership" title="Permalink to this headline">¶</a></h3>
+<p>When declaring variables in CodeDog, both an ownership type and data type are specified.
+Data Types</p>
+<div class="section" id="ownership">
+<h4>2.4.1.1. Ownership<a class="headerlink" href="#ownership" title="Permalink to this headline">¶</a></h4>
+<p>In CodeDog, variables are assigned an ownership type. The ownership type of an object tells CodeDog where to allocate memory and when to release the memory. For strictly Python users, this may be a foreign concept. For C++ users, they translate to objects, pointers, shared pointers, etc. This is a part of CodeDog because it translates your program to languages that have very different approaches to ownership, without you needing to know the details of each language.</p>
+<p>An analogy for considering ownership types for the uninitiated is to think of a person as a class, we’ll call her Susie. Susie has integral components, such as an arm or head, and these are represented in CodeDog ownership as type “me”. It doesn’t make sense to reference them as separate from Susie, they’re an integral part of her. Those are “me”s.</p>
+<p>Susie’s class may reference a belonging, such as a bike, that belongs to her but isn’t an integral part of her (unless she commutes on it, in which case it may feel like an appendage!) This is represented in CodeDog ownership by “my”, because it belongs to her but it isn’t an integral part. It could be lent to someone else to make use of it but it isn’t theirs to destroy, that right remains with Susie. She is the one that releases it from memory when it reaches the end of its life.</p>
+<p>Susie’s class may reference something that she shares with many different people, possibly at the same time. Like a bus, Susie uses the bus, but so do others. In CodeDog this ownership is “our”. None of the users of “our” items have to destroy the “our” objects. The system will destroy them when the time is right.</p>
+<p>Finally Susie’s class may also contain a reference to someone else’s stuff, like Dad’s car. Susie can use it but it’s not hers to destroy. This is represented in CodeDog ownership as “their”. It points to a reference in memory allocated somewhere else that Susie isn’t responsible for releasing.</p>
+<p>In CodeDog memory releasing is done for you, so you won’t be manually releasing memory. But the analogy can be useful for wrapping your head around when memory is being freed.</p>
+<div class="admonition-common-ownership-types admonition">
+<p class="first admonition-title">Common ownership types</p>
+<p>me, our, their</p>
+<p><strong>me</strong> - a part of its class or function, this is the object itself as a local or global variable or an argument in a function. As soon as the object it is in is erased from memory or the program exits the scope it’s declared in, any “me” elements are released from memory. If no ownership type is specified, CodeDog will default to “me”.</p>
+<p><strong>our</strong> - the “our” element is a reference to a variable that other classes or functions may also have a reference to. When the program exits the scope of an “our” element, the “our” element on the stack is freed, but if other things are still referencing the same variable, the variable itself will not be freed. Only when all pointers to a location are freed will the referenced variable be freed. This is how most variables in Java work and in C++ codeDog implements and manages them as a shared pointer.</p>
+<p class="last"><strong>their</strong> - the “their” element is a small piece of memory that points to a location in memory on the heap that is managed by another class. In CodeDog “their” is less commonly used than “me” and “our”, it is used primarily for pointers received from an API or another class. Analogous to an unmanaged pointer in C++.
+Advanced ownership types</p>
+</div>
+<p>The ownership types of “my”, “we” and “itr” are intended for more advanced use cases and will be explained later.</p>
+</div>
+<div class="section" id="basic-data-types">
+<h4>2.4.1.2. Basic Data Types<a class="headerlink" href="#basic-data-types" title="Permalink to this headline">¶</a></h4>
+<p>The basic data types built into CodeDog, each followed by an example that declares &amp; assigns a variable of that type.
+Booleans</p>
+<p>A boolean with possible values of “true” and “false”</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me bool: isOn &lt;- true
+</pre></div>
+</div>
+</div>
+<div class="section" id="text">
+<h4>2.4.1.3. Text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h4>
+<p><strong>char</strong></p>
+<p>A “char”, limited to a string literal of length one.</p>
+<p><strong>string</strong></p>
+<p>A “string” of text characters of arbitrary length.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me char: firstInitial &lt;- &quot;M&quot;
+me string: firstName &lt;- &quot;Matt&quot;
+</pre></div>
+</div>
+<p><strong>User Strings</strong></p>
+<p>Some strings are specifically meant to be messages presented to users. These are enclosed in single quotes.
+User strings undergo extra processing so do not use them unless the extra functionality is warrented.</p>
+<ol class="arabic simple">
+<li>They can be interpolated</li>
+<li>In the future they will be used when internationalizing a program to provide program wide translations to other languages.</li>
+</ol>
+</div>
+<div class="section" id="numeric-values">
+<h4>2.4.1.4. Numeric values<a class="headerlink" href="#numeric-values" title="Permalink to this headline">¶</a></h4>
+<p>C++ style numeric data types are built in, supporting signed and unsigned integers of 32 and 64 bit, as well as a double.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me int: age &lt;- 27
+me int32:
+me int64:
+me uint32:
+me uint64:
+me double: pi &lt;- 3.1415926535897
+</pre></div>
+</div>
+<p><strong>Ranges</strong></p>
+<ul class="simple">
+<li>Flags</li>
+<li>Modes</li>
+</ul>
+<p>A range of integers can be specified. Currently this defaults to int. In the future this will be adjusted to choose an optimal data type and restrict values to the specified range.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me 0..23: hour &lt;- 17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="declaring-fields">
+<h3>2.4.2. Declaring Fields<a class="headerlink" href="#declaring-fields" title="Permalink to this headline">¶</a></h3>
+<img alt="FieldDef.svg" src="FieldDef.svg" /><p>Name and field and optionally give an initial value</p>
+<img alt="NameAndValue.svg" src="NameAndValue.svg" /></div>
+</div>
+<div class="section" id="functions">
+<h2>2.5. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Fields that are declared with an argument list in the name are considered functions.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me int: addOne(me int: num) &lt;- {
+    return(num + 1)
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="expressions-and-operators">
+<h2>2.6. Expressions and Operators<a class="headerlink" href="#expressions-and-operators" title="Permalink to this headline">¶</a></h2>
+<p>The following operators are supported in CodeDog:
+Basic Arithmetic:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">12</span> <span class="o">+</span> <span class="mi">3</span>      <span class="o">//</span> <span class="n">addition</span><span class="p">,</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="mi">15</span>
+<span class="mi">11</span> <span class="o">-</span> <span class="mi">4</span>      <span class="o">//</span> <span class="n">subtraction</span><span class="p">,</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="mi">7</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">6</span>       <span class="o">//</span> <span class="n">multiplication</span><span class="p">,</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="mi">12</span>
+<span class="mi">4</span> <span class="o">/</span> <span class="mi">2</span>       <span class="o">//</span> <span class="n">division</span><span class="p">,</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="mi">2</span>
+<span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>       <span class="o">//</span> <span class="n">modulus</span><span class="p">,</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Equality:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">myInt</span> <span class="o">==</span> <span class="mi">5</span>          <span class="o">//</span> <span class="n">test</span> <span class="k">for</span> <span class="n">equality</span><span class="p">,</span> <span class="n">this</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="n">true</span> <span class="k">if</span> <span class="n">myInt</span> <span class="ow">is</span> <span class="mi">5</span>
+<span class="n">counter</span> <span class="o">!=</span> <span class="mi">10</span>       <span class="o">//</span> <span class="n">test</span> <span class="k">for</span> <span class="n">inequality</span><span class="p">,</span> <span class="n">this</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="n">true</span> <span class="k">if</span> <span class="n">counter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">10</span>
+<span class="n">ourObj1</span> <span class="o">===</span> <span class="n">ourObj2</span> <span class="o">//</span> <span class="n">test</span> <span class="k">for</span> <span class="n">pointer</span> <span class="n">equality</span><span class="p">,</span> <span class="n">this</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="n">true</span> <span class="k">if</span> <span class="n">both</span> <span class="n">point</span> <span class="n">to</span> <span class="n">the</span> <span class="n">same</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>There are also the standard &lt;, &lt;=, &gt; and &gt;= operators for comparison.</p>
+<p>Logical Operators:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>!
+and
+or
+</pre></div>
+</div>
+<p>Bitwise Operators:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">|</span>    <span class="o">//</span> <span class="n">bitwise</span> <span class="n">OR</span>
+<span class="o">&amp;</span>    <span class="o">//</span> <span class="n">bitwise</span> <span class="n">AND</span>
+<span class="o">^</span>    <span class="o">//</span> <span class="n">bitwise</span> <span class="n">XOR</span>
+</pre></div>
+</div>
+<p>In CodeDog, operator precedence is the same as in C++ and most C-like languages.</p>
+</div>
+<div class="section" id="actions">
+<h2>2.7. Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-variable-declarations-and-assignment-actions">
+<h3>2.7.1. New variable declarations and assignment Actions<a class="headerlink" href="#new-variable-declarations-and-assignment-actions" title="Permalink to this headline">¶</a></h3>
+<p>Declare variables inside functions the same way they are declared as fields in classes.</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me int: A &lt;- 5
+</pre></div>
+</div>
+<p><em>Compound Assignments</em></p>
+<p>Compound assignments can be made by inserting an operator in the middle of an assignment operator. For example, inserting the sum operator between the leading “&lt;” and the closing “-” of a standard assignment operator, “&lt;+-“.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">&lt;+-</span> <span class="mi">1</span>      <span class="o">//</span> <span class="n">shorthand</span> <span class="k">for</span> <span class="n">counter</span> <span class="o">&lt;-</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">counter</span> <span class="o">&lt;--</span> <span class="mi">1</span>      <span class="o">//</span> <span class="n">shorthand</span> <span class="k">for</span> <span class="n">counter</span> <span class="o">&lt;-</span> <span class="n">counter</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">multiplier</span> <span class="o">&lt;*-</span> <span class="mi">2</span>   <span class="o">//</span> <span class="n">shorthand</span> <span class="k">for</span> <span class="n">multiplier</span> <span class="o">&lt;-</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">multiplier</span> <span class="o">&lt;/-</span> <span class="mi">2</span>   <span class="o">//</span> <span class="n">shorthand</span> <span class="k">for</span> <span class="n">multiplier</span> <span class="o">&lt;-</span> <span class="n">multiplier</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="o">&lt;%-</span>
+<span class="o">&lt;|-</span>
+<span class="o">&lt;&amp;-</span>
+<span class="o">&lt;^-</span>
+<span class="o">&lt;</span><span class="n">deep</span><span class="o">-</span>              <span class="o">//</span> <span class="n">copy</span> <span class="n">the</span> <span class="n">contents</span> <span class="n">even</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">pointer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-call-actions">
+<h3>2.7.2. Function call Actions<a class="headerlink" href="#function-call-actions" title="Permalink to this headline">¶</a></h3>
+<p>Call a function in the normal way:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;-</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conditional-actions">
+<h3>2.7.3. Conditional Actions<a class="headerlink" href="#conditional-actions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="if-else">
+<h4>2.7.3.1. if / else<a class="headerlink" href="#if-else" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>if(day==&quot;Saturday&quot;){
+    print(&quot;It&#39;s the weekend.&quot;)
+}else if(day==&quot;Monday&quot;){
+    print(&quot;Coffee Please.&quot;)
+}else{
+    print(&quot;Another day another dollar.&quot;)
+}
+</pre></div>
+</div>
+<p>Notice that after an <em>else</em> curly braces are not needed if the next statement is an <em>if</em>.</p>
+</div>
+<div class="section" id="switch">
+<h4>2.7.3.2. switch<a class="headerlink" href="#switch" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>switch(day){
+    case SAT:{print(&quot;It&#39;s the weekend.&quot;)}
+    case MON:{print(&quot;Coffee Please.&quot;)}
+    case default:{print(&quot;Another day another dollar.&quot;)}
+}
+</pre></div>
+</div>
+<p>Switch cases do not need to have a break at the end.</p>
+</div>
+</div>
+<div class="section" id="repetition-actions">
+<h3>2.7.4. Repetition Actions<a class="headerlink" href="#repetition-actions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="witheach">
+<h4>2.7.4.1. withEach<a class="headerlink" href="#witheach" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me List&lt;me int&gt;: data {5, 7, 9}
+withEach num in data{
+    print(num)
+}
+</pre></div>
+</div>
+<p>You can also loop over a range</p>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>withEach num in RANGE(5..10){
+    print(num)
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="while">
+<h4>2.7.4.2. while<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-codeDog"><div class="highlight"><pre><span></span>me bool: done &lt;- false
+while(! done){
+    done &lt;- getStatus()
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-features">
+<h2>2.8. Advanced Features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="templated-classes">
+<h3>2.8.1. Templated Classes<a class="headerlink" href="#templated-classes" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="macros">
+<h3>2.8.2. Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="generating-parsers">
+<h3>2.8.3. Generating Parsers<a class="headerlink" href="#generating-parsers" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="using-a-test-harness">
+<h3>2.8.4. Using a Test Harness<a class="headerlink" href="#using-a-test-harness" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div class="sphinxglobaltoc">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to CodeDog!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getStarted.html">1. Getting Started With CodeDog</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. CodeDog language reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#codedog-files">2.1. CodeDog Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-three-sections-of-a-codedog-program">2.2. The Three Sections of a CodeDog Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">2.3. Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fields">2.4. Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">2.5. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expressions-and-operators">2.6. Expressions and Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actions">2.7. Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-features">2.8. Advanced Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libraries.html">3. CodeDog Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">4. Extending CodeDog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">5. Contributing</a></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+      <div class="relbar-bottom">
+            
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="libraries.html" title="3. CodeDog Libraries"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getStarted.html" title="1. Getting Started With CodeDog"
+             >previous</a> &nbsp; &nbsp;</li>
+      <li><a href="index.html">CodeDog 1.0 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Bruce Long.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+      <!-- PSphinxTheme -->
+  </body>
+</html>

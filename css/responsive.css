@@ -2,18 +2,11 @@
              Media Queries
 ==================================================*/
 
-
 /* Large Devices (Desktops & Laptops) */
-
 @media (min-width: 1200px) {
-
 }
-
-
 /* Medium Devices (Landscape Tablets & Medium Desktops) */
-
 @media (min-width: 992px) and (max-width: 1199px) {
-
     #page-content {
         width: 78%;
     }
@@ -22,12 +15,8 @@
         min-height: 850px;
         padding: 20px;
     }
-
 }
-
-
 /* Small Devices (Portrait Tablets & Small Desktops) */
-
 @media (min-width: 768px) and (max-width: 991px) {
     .navbar {
         padding: 1rem 3rem;
@@ -52,10 +41,7 @@
         font-size: 36px !important;
     }
 }
-
-
 /* Extra Small Devices (Landscape Phones & Portrait Tablets) */
-
 @media (max-width: 767px) {
     .navbar-brand-logo {
         width: 40px;
@@ -126,10 +112,7 @@
         font-size: 18px;
     }
 }
-
-
 /* Extra Small Devices (Portrait Phones & Smaller devices) */
-
 @media (max-width: 480px) {
     .font-weight {
         font-size: 30px;
@@ -137,14 +120,8 @@
     .font-weight2 {
         font-size: 25px;
     }
-    .font-weight3 {
-        font-size: 25px;
-    }
 }
-
-
 /* Extra Small Devices (Portrait Phones & Smaller devices) */
-
 @media (max-width: 320px) {
     .font-weight {
         font-size: 20px;

@@ -1,36 +1,29 @@
 
-
 @font-face {
     font-family: Elemental-End;
     src: url(../font/Elemental-End.ttf);
 }
-
 @font-face {
     font-family: AGaramondPro-Italic;
     src: url(../font/AGaramondPro-Italic.otf);
 }
-
 @font-face {
     font-family: AGaramondPro;
     src: url(../font/AGaramondPro.otf);
 }
-
 @font-face {
     font-family: Roboto;
     src: url(../font/Roboto-Regular.ttf);
 }
-
 body {
     background-color: #040101 !important;
     color: #ffffff;
 }
 
 /* General CSS */
-
 .navbar {
     padding: 1rem .4rem;
 }
-
 .navbar-brand-logo {
     width: 60px;
     height: auto;
@@ -48,7 +41,6 @@ body {
     transition: 0.5s;
     padding-top: 60px;
 }
-
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -57,11 +49,9 @@ body {
     display: block;
     transition: 0.3s;
 }
-
 .sidenav a:hover {
     color: #f1f1f1;
 }
-
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -69,12 +59,9 @@ body {
     font-size: 36px;
     margin-left: 50px;
 }
-
-
 .fixed-top {
     position: absolute;
 }
-
 .masthead {
   height: 895px;
   min-height: 895px;
@@ -83,7 +70,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .masthead2 {
     height: 253px;
     min-height: 253px;
@@ -92,7 +78,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-
 .font-weight {
     font-family: Elemental-End;
     font-weight: 700;
@@ -104,7 +89,6 @@ body {
     color: #fff;
     margin: 0;
 }
-
 .font-weight2 {
     font-family: Elemental-End;
     font-weight: 600;
@@ -114,7 +98,6 @@ body {
     text-transform: none;
     line-height: 1.2em;
 }
-
 .font-weight3 {
     font-family: Elemental-End;
     font-weight: 600;
@@ -124,7 +107,6 @@ body {
     text-transform: none;
     line-height: 1.2em;
 }
-
 .lead {
     font-family: AGaramondPro-Italic;
     font-weight: 400;
@@ -136,7 +118,6 @@ body {
     color: #fff;
     margin: 0;
 }
-
 .nav-link {
     font-family: Roboto;
     font-weight: 600;
@@ -161,8 +142,7 @@ body {
     background-color: #ffffff;
     color: #000000 !important;
 }
-
-.hero-btn {
+.blue-btn {
     color: #ffffff;
     background-color: #00CCFA;
     font-family: Roboto;
@@ -176,11 +156,10 @@ body {
     padding: 1.2em 2em !important;
     border-radius: 50px;
 }
-.hero-btn:hover {
+.blue-btn:hover {
     background-color: #00ccfaba;
-    color: white;
+    color: #ffffff;
 }
-
 .font-weight-desc {
     margin: 40px 0;
     font-family: Roboto;
@@ -191,40 +170,31 @@ body {
     text-transform: none;
     line-height: 1.2em;
 }
-
 .hr-desc {
     border-top: 1px solid rgb(255 255 255 / 22%);
     margin: 60px 0;
 }
-
-
 /************ Page Content ************/
-
 #page-content {
     padding: 100px 0 0 0;
     width: 48%;
     margin: 0 auto;
     text-align: center;
 }
-
 .img-content {
     margin: 60px 0;
 }
-
 .img-content img {
     width: 100%;
 }
-
 .form-box {
     margin: 130px 0;
     text-align: center;
 }
-
 .form-box p {
     font-family: serif;
     font-size: 15px;
 }
-
 .form-inner input {
     padding: 1em;
     background: #fff;
@@ -236,7 +206,6 @@ body {
     width: 240px;
     height: 50px;
 }
-
 .form-inner button {
     color: #fff;
     background-color: #00ccfa;
@@ -254,40 +223,30 @@ body {
     top: -2px;
     position: relative;
 }
-
 .form-inner button:hover {
     background-color: #00ccfabd;
     border: 1px solid #00ccfabd !important;
 }
-
 .form-inner input::placeholder {
     font-family: serif;
     color: #0000006b;
 }
-
-
-
 /************ Footer ************/
 .footer-inner {
     text-align: center;
     margin-bottom: 60px;
 }
-
 .footer-inner h5 {
     margin: 35px 0;
 }
-
 /************ Developer Start Page ************/
-
 .sqs-block-content h2{
     font-family: Elemental-End;
 }
-
 .sqs-block-content a{
     color: #00ccfa;
 }
 /************ Article ************/
-
 .entry {
     padding-top: 40px;
     padding-bottom: 90px;
@@ -296,7 +255,6 @@ body {
     text-align: center;
     color: rgba(255,255,255,0.5);
 }
-
 .entry header h1{
     font-family: Elemental-End;
     text-align: center;
@@ -304,7 +262,6 @@ body {
     max-width: 900px;
     margin: auto;
 }
-
 .entry-content {
     font-family: AGaramondPro;
     color: rgba(255,255,255,0.7);
@@ -313,7 +270,6 @@ body {
     max-width: 70%;
     margin: auto;
 }
-
 .entry-content p{
     margin-bottom: 1em ;
 }
@@ -332,7 +288,6 @@ body {
     max-width: 900px;
     margin: auto;
 }
-
 .subTitle {
     font-family: AGaramondPro-Italic;
     color: rgba(255,255,255,0.95);
@@ -341,7 +296,6 @@ body {
     max-width: 80%;
     margin: auto;
 }
-
 /************ Contact Us ************/
 #contact-us {
     padding: 70px 0 0 0;
@@ -355,39 +309,16 @@ body {
     margin: 0 auto;
     text-align: left;
 }
-.btn-blue {
-    color: #fff;
-    background-color: #00ccfa;
-    border: 1px solid #00ccfa !important;
-    font-family: Roboto;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 14px;
-    text-transform: uppercase;
-    padding: 1em 2.2em;
-    border-radius: 50px;
-}
-
-.btn-blue:hover {
-    color: #fff;
-    background-color: #00ccfabd;
-    border: 1px solid #00ccfabd !important;
-}
-
 .contact-us-boxes p {
     margin: 20px 0;
 }
-
 .contact-us-boxes {
     margin: 50px 0;
 }
-
 .navbar-dark .navbar-toggler {
     border-color: rgb(255 255 255 / 0%);
 }
-
 @media (min-width: 992px){
-
 .sidenav .navbar-nav {
     -ms-flex-direction: row;
     flex-direction: column;
